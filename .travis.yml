@@ -1,0 +1,16 @@
+language: ruby
+cache: bundler
+rvm:
+ - 2.4.0
+notifications:
+email: false
+services:
+- postgresql
+before_script:
+- psql -c 'create database slow_food_test;' -U postgres
+script:
+- bundle exec rails test_with_coveralls
+deploy:
+provider: heroku
+api_key:
+  secure:
