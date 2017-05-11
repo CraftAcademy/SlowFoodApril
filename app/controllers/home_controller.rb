@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @Restaurants = Restaurant.all
+    @restaurants = Restaurant.all
   end
 end
