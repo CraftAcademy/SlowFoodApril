@@ -4,7 +4,11 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title SlowFoodApril
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "font-awesome/css/font-awesome"
+    = stylesheet_link_tag "style"
+    = javascript_include_tag  "https://maps.googleapis.com/maps/api/js?key=AIzaSyB1qLGS4tfitWPh2TDhoAVrLGDpYJ2st88"
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
     = yield

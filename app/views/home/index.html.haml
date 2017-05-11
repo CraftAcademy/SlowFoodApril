@@ -7,3 +7,6 @@
       %ul
         - @restaurant.each do |restaurant|
           %li= restaurant[:name]
+
+    %div{ :style => "width: 1000px;" }
+      #map{ :style => "width: 1000px; height: 600px;" }

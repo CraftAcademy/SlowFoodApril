@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem "haml-rails", "~> 0.9"
+  gem 'poltergeist'
 end
 
 group :development do
