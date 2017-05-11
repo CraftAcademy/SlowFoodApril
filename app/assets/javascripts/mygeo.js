@@ -5,6 +5,9 @@ $(document).ready(function() {
   var map = new GMaps({
     el: '#map',
     lat: lat,
-    lng: long
+    lng: long,
+    infoWindow: {
+      content: '<p>There you are!</p>'
+    }
   });
 });
