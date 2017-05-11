@@ -7,3 +7,5 @@
       %ul
         - @restaurants.each do |restaurant|
           %li= restaurant[:name]
+          %ul
+            %li Address: #{restaurant[:address]}
