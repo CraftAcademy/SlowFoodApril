@@ -25,4 +25,27 @@ RSpec.describe Restaurant, type: :model do
       expect(FactoryGirl.create(:restaurant)).to be_valid
     end
   end
+
+  describe 'Geocoder' do
+    before(:all) do
+      Geocoder.configure(:lookup => :test)
+      Geocoder::Lookup::Test.add_stub(
+        "Ostrahamngatan 5,", [
+          {
+            'latitude' =>   57.7093164,
+            'longitude' =>  11.9663941,
+            'address'   => 'Ostrahamngatan 5,',
+            'state'     => 'Vastra Gotaland',
+            'city'      => 'Gothenbourg',
+            'country'   => 'Sweden',
+          }
+        ]
+      )
+    end
+    it "should return latitude" do
+      results = Geocoder.search("Ostrahamngatan 5,")
+      lat = results[0].latitude
+      expect(lat).to eq 57.7093164
+    end
+  end
 end
