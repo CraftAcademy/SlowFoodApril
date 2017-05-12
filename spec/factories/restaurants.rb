@@ -9,5 +9,6 @@ FactoryGirl.define do
     country "MyString"
     latitude  "Float"
     longitude "Float"
+    description "MyString"
   end
 end

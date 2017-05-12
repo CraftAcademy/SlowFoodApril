@@ -13,6 +13,11 @@ class Restaurant < ApplicationRecord
     address_changed? || city_changed? || state_changed? || country_changed?
   end
 
+  def address_city_state_country_present?
+    address.present? || city.present? || state.present? || country.present?
+  end
+
   geocoded_by :full_address, latitude: :latitude, longitude: :longitude
-  after_validation  :geocode, if: :address_city_state_country_changed?
+  after_validation  :geocode, if:  :address_city_state_country_present? || :address_city_state_country_changed?
+
 end

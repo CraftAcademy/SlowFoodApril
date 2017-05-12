@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20170511151845) do
     t.string   "address"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
     t.string   "city"
     t.string   "state"
     t.string   "country"

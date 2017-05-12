@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Slow Food
+  %body
+    %div
+      %ul
+        - @restaurants.each do |restaurant|
+          %li= link_to (restaurant.name), restaurant_path(restaurant)
+          %ul
+            %li Address: #{restaurant.address}
+            %li Email: #{restaurant.email}
+            %li Phone: #{restaurant.phone}
+
+    #map{ style: "width: 100%; height: 400px;" }
