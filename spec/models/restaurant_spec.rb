@@ -7,15 +7,12 @@ RSpec.describe Restaurant, type: :model do
     it { is_expected.to have_db_column :address }
     it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :phone }
-<<<<<<< HEAD
     it { is_expected.to have_db_column :city  }
     it { is_expected.to have_db_column :state  }
     it { is_expected.to have_db_column :country  }
     it { is_expected.to have_db_column :latitude }
     it { is_expected.to have_db_column :longitude }
-=======
     it { is_expected.to have_db_column :description }
->>>>>>> develop
   end
 
   describe 'Validations' do
