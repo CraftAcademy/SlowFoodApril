@@ -1,4 +1,5 @@
 require 'rails_helper'
+# require 'geocoder'
 
 RSpec.describe Restaurant, type: :model do
   describe 'DB table Restaurant' do
@@ -26,13 +27,13 @@ RSpec.describe Restaurant, type: :model do
     end
   end
 
-  describe 'Geocoder' do
-    before(:all) do
+  describe "Geocoder" do
+    before do
       Geocoder.configure(:lookup => :test)
       Geocoder::Lookup::Test.add_stub(
         "Ostrahamngatan 5,", [
           {
-            'latitude' =>   57.7093164,
+            'latitude' =>   57.70931634,
             'longitude' =>  11.9663941,
             'address'   => 'Ostrahamngatan 5,',
             'state'     => 'Vastra Gotaland',
@@ -42,10 +43,22 @@ RSpec.describe Restaurant, type: :model do
         ]
       )
     end
-    it "should return latitude" do
+    it "should retuen latitude" do
       results = Geocoder.search("Ostrahamngatan 5,")
       lat = results[0].latitude
-      expect(lat).to eq 57.7093164
+      expect(lat).to eq 57.70931634
     end
   end
-end
+
+      it "should test full_address" do
+        details = {name: "Goteborg Wok Sushi", address: "Ostrahamngatan 5", city: 'Gothenbourg', state: 'Vastra Gotaland',  country: "Sweden" }
+        FactoryGirl.create(:restaurant, details)
+        restaurant = Restaurant.find_by(name: "Goteborg Wok Sushi" )
+        expect(restaurant.full_address).to eq "Ostrahamngatan 5, Gothenbourg, Vastra Gotaland, Sweden"
+        restaurant.address = "Pretoria"
+        expect(restaurant.address_city_state_country_changed?).to be true
+        expect(restaurant.address_city_state_country_present?).to be true
+        expect(restaurant.latitude).to eq 57.7093164
+      end
+
+  end

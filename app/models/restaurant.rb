@@ -5,6 +5,9 @@ class Restaurant < ApplicationRecord
   validates_presence_of :state, presence: true
   validates_presence_of :country, presence: true
 
+  geocoded_by :full_address, latitude: :latitude, longitude: :longitude
+  after_validation  :geocode, if:  :address_city_state_country_present? || :address_city_state_country_changed?
+
   def full_address
     [address, city, state, country].compact.join(', ')
   end
@@ -16,8 +19,5 @@ class Restaurant < ApplicationRecord
   def address_city_state_country_present?
     address.present? || city.present? || state.present? || country.present?
   end
-
-  geocoded_by :full_address, latitude: :latitude, longitude: :longitude
-  after_validation  :geocode, if:  :address_city_state_country_present? || :address_city_state_country_changed?
 
 end
