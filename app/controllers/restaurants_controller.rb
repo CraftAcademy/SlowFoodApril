@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
   def index
     if params[:category].present? == true
       cat_chosen = params[:category][:id]
@@ -7,7 +8,7 @@ class RestaurantsController < ApplicationController
       @restaurants = Restaurant.all
     end
   end
-
+  
   def show
     @restaurant = Restaurant.find(params[:id])
   end
