@@ -51,14 +51,13 @@ RSpec.describe Restaurant, type: :model do
   end
 
       it "should test full_address" do
-        details = {name: "Goteborg Wok Sushi", address: "Ostrahamngatan 5", city: 'Gothenbourg', state: 'Vastra Gotaland',  country: "Sweden" }
+        details = {name: "Spur", address: "35, Burger Avenue", city: "Centurion", state: 'Gauteng',  country: "South Africa" }
         FactoryGirl.create(:restaurant, details)
-        restaurant = Restaurant.find_by(name: "Goteborg Wok Sushi" )
-        expect(restaurant.full_address).to eq "Ostrahamngatan 5, Gothenbourg, Vastra Gotaland, Sweden"
-        restaurant.address = "Pretoria"
-        expect(restaurant.address_city_state_country_changed?).to be true
+        restaurant = Restaurant.find_by(name: "Spur" )
+        expect(restaurant.full_address).to eq "35, Burger Avenue, Centurion, Gauteng, South Africa"
+        expect(restaurant.address_city_state_country_changed?).to be false
         expect(restaurant.address_city_state_country_present?).to be true
-        expect(restaurant.latitude).to eq 57.7093164
+        expect(restaurant.latitude).to eq -25.837322
       end
 
   end
