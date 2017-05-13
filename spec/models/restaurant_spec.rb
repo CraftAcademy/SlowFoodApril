@@ -57,7 +57,8 @@ RSpec.describe Restaurant, type: :model do
         expect(restaurant.full_address).to eq "35, Burger Avenue, Centurion, Gauteng, South Africa"
         expect(restaurant.address_city_state_country_changed?).to be false
         expect(restaurant.address_city_state_country_present?).to be true
-        expect(restaurant.latitude).to eq -25.837322
+        expect(restaurant.latitude).to eq (-25.837322)
       end
 
   end
+  
