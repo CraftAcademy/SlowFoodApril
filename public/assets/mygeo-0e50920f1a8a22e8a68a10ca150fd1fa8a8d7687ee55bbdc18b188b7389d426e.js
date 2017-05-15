@@ -35,16 +35,20 @@ $(document).ready(function() {
               content: '<p>Hey You!</p>'
             }
           });
+          var myoverlay = new google.maps.OverlayView();
+          myoverlay.draw = function() {
+            this.getPanes().markerLayer.id = 'markers';
+          };
+          
           map.drawOverlay({
             lat: latitude,
             lng: longitude,
-            layer: 'floatPane',
-            content: '<div class="overlay" style: height:400px>Gotcha</div>'
+            content: '<div class="overlay">Gotcha</div>'
           });
           $.ajax({
             url: "/restaurants/nearby/:lat/:long",
             type: "GET",
-            data: {'latitude': latitude, 'longitude': longitude},
+            data: {'lat': latitude, 'long': longitude},
             dataType: 'json',
             success: function() {
               console.log("Your data was successfully sent to the controller");
@@ -70,16 +74,10 @@ $(document).ready(function() {
             content: '<p>Yipee!</p>'
           }
         });
-        map.drawOverlay({
-          lat: latitude,
-          lng: longitude,
-          layer: 'floatPane',
-          content: '<div class="overlay" style: height:400px>Gotcha</div>'
-        });
         $.ajax({
           url: "/restaurants/nearby/:lat/:long",
           type: "GET",
-          data: {'latitude': -25.838572, 'longitude': 28.209190},
+          data: {'lat': latitude, 'long': longitude},
           dataType: 'json',
           success: function() {
             console.log("Your data was successfully sent to the controller");

@@ -20,6 +20,4 @@ Feature: As a potential customer
     And I have google map loaded on the page
     And my location is set to "-25.840714" lat and "28.209476" long
     Then my position on the map should be approximately "-25.840714" lat and "28.209476" long
-    And spur on the map should be close to me at approximately "-25.838572" lat and "28.209190" long
-    And Yin Yang on the map should be close to me at approximately "-25.834003" lat and "28.213094" long
-    And Steers on the map should be close to me at approximately "-25.870190" lat and "28.214460" long
+    And I expect to see a google map marker

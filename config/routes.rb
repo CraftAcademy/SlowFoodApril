@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root controller: :restaurants, action: :index
 
+  get "/restaurants/nearby/:lat/:long"  => 'restaurants#nearby'
+
   namespace :api do
     namespace :v0 do
       resources :hello, only: [:index], constraints: { format: 'json' }

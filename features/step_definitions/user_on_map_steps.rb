@@ -4,9 +4,6 @@ Given(/^the following restaurants exists$/) do |table|
   end
 end
 
-Given(/^my location is set to "([^"]*)" lat and "([^"]*)" long$/) do |lat, lng|
-
-end
 
 Then(/^my position on the map should be approximately "([^"]*)" lat and "([^"]*)" long$/) do |lat, lng|
   ACCEPTED_OFFSET = 0.2
@@ -16,14 +13,13 @@ Then(/^my position on the map should be approximately "([^"]*)" lat and "([^"]*)
   expect(center_long).to be_within(ACCEPTED_OFFSET).of(lng.to_f)
 end
 
-Then(/^spur on the map should be close to me at approximately "([^"]*)" lat and "([^"]*)" long$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+
+Then(/^I expect to see a google map marker$/) do
+  sleep(0.1) until page.evaluate_script('$.active') == 0
+  expect(page).to have_css 'div.overlay'
 end
 
-Then(/^Yin Yang on the map should be close to me at approximately "([^"]*)" lat and "([^"]*)" long$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
-Then(/^Steers on the map should be close to me at approximately "([^"]*)" lat and "([^"]*)" long$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^my location is set to "([^"]*)" lat and "([^"]*)" long$/) do |arg1, arg2|
+
 end
