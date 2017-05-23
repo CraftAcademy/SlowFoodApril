@@ -17,6 +17,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'geocoder'
+gem 'devise'
+
 
 
 group :development, :test do
@@ -29,6 +31,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem "haml-rails", "~> 0.9"
   gem 'poltergeist'
+  gem 'launchy'
 end
 
 group :development do

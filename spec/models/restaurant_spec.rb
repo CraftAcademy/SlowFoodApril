@@ -21,6 +21,10 @@ RSpec.describe Restaurant, type: :model do
     it { is_expected.to validate_presence_of :address }
   end
 
+  describe 'Associations' do
+    it { is_expected.to belong_to :rest_category }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(FactoryGirl.create(:restaurant)).to be_valid

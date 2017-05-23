@@ -10,5 +10,6 @@ FactoryGirl.define do
     latitude  "Float"
     longitude "Float"
     description "MyString"
+    rest_category
   end
 end
