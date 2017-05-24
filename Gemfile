@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
+gem "haml-rails", "~> 0.9"
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem "haml-rails", "~> 0.9"
   gem 'poltergeist'
   gem 'launchy'
 end
