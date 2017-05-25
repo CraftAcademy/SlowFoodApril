@@ -29,4 +29,13 @@ RSpec.describe User, type: :model do
       expect(FactoryGirl.create(:user)).to be_valid
     end
   end
+
+  describe 'Restaurant Owner role' do
+    params = {email: 'xavy@ibm.com', password: '12345678', password_confirmation: '12345678', restaurant_owner: true  }
+    user = FactoryGirl.create(:user, params)
+    let (:current_user) {user}
+    it 'current_user should be restaurant_owner' do
+      expect(current_user.restaurant_owner?).to be true
+    end
+  end
 end

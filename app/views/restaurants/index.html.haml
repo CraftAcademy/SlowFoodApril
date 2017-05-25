@@ -1,6 +1,5 @@
 - if user_signed_in? && current_user.restaurant_owner?
   = link_to "View My Restaurant Dashboard"
-
 %div
   = form_tag(root_path, method: 'get') do
     = label_tag(:category, 'Filter by category: ')
