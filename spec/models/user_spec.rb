@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :address }
     it { is_expected.to have_db_column :phone_number }
     it { is_expected.to have_db_column :admin }
-
+    it { is_expected.to have_db_column :restaurant_owner }
   end
 
   describe 'Validations' do

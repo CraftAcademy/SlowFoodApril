@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524122936) do
+ActiveRecord::Schema.define(version: 20170525091520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 20170524122936) do
     t.datetime "updated_at",       null: false
     t.string   "description"
     t.integer  "rest_category_id"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
     t.index ["rest_category_id"], name: "index_restaurants_on_rest_category_id", using: :btree
   end
 
@@ -54,11 +51,8 @@ ActiveRecord::Schema.define(version: 20170524122936) do
     t.string   "last_name"
     t.string   "address"
     t.string   "phone_number"
-<<<<<<< HEAD
-    t.boolean  "restaurant_owner"
-=======
     t.boolean  "admin",                  default: false
->>>>>>> develop
+    t.boolean  "restaurant_owner",       default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

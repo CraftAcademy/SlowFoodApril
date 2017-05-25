@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def restaurant_owner?
+      User.restaurant_owner == true
+  end
+
   protected
 
   def configure_permitted_parameters
