@@ -1,6 +1,7 @@
 class Api::V0::HelloController < ApplicationController
+  include ActionController::RequestForgeryProtection
 
-  def protect_from_forgery
+  def index
+    render json: { message: 'Hi' }
   end
-  
 end
