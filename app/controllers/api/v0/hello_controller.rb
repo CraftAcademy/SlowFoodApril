@@ -1,4 +1,4 @@
-class Api::V0::HelloController < ApplicationController
+class Api::V0::HelloController < ApiController
   include ActionController::RequestForgeryProtection
 
   def index
