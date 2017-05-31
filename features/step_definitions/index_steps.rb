@@ -12,6 +12,9 @@ end
 
 Given(/^the following restaurants exist$/) do |table|
   table.hashes.each do |hash|
+    owner_email = hash.delete('owner')
+    owner = User.find_by(email: owner_email)
+    hash[:user] = owner
     hash["rest_category"] = RestCategory.find_by(name: hash["rest_category"])
     FactoryGirl.create(:restaurant, hash)
   end

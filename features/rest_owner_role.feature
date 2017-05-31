@@ -14,7 +14,7 @@ Feature: As a restaurant owner
     And I fill in field "E-mail" with "max@mollerstrom"
     And I fill in field "Password" with "12345678"
     And I click on button "Log in"
-    Then I should see link "View My Restaurant Dashboard"
+    Then I should see link "View My Restaurant Page"
 
 
   Scenario: Sad Path
@@ -23,4 +23,4 @@ Feature: As a restaurant owner
     And I fill in field "E-mail" with "joe@doe.com"
     And I fill in field "Password" with "12345678"
     And I click on button "Log in"
-    Then I should not see "View My Restaurant Dashboard"
+    Then I should not see "View My Restaurant Page"

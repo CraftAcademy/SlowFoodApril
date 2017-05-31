@@ -1,7 +1,7 @@
 - if user_signed_in?
   = link_to "Are you a restaurant owner? Click to register your restaurant", new_restaurant_path
 - if user_signed_in? && current_user.restaurant_owner?
-  = link_to "View My Restaurant Dashboard"
+  = link_to "View My Restaurant Page", owners_restaurants_path(current_user)
 %div
   = form_tag(root_path, method: 'get') do
     = label_tag(:category, 'Filter by category: ')

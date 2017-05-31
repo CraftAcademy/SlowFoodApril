@@ -1,0 +1,8 @@
+%div
+  %ul
+    - @restaurants.each do |restaurant|
+      %li= link_to (restaurant.name), owners_restaurant_path(restaurant)
+      %ul
+        %li Address: #{restaurant.address}
+        %li Email: #{restaurant.email}
+        %li Phone: #{restaurant.phone}

@@ -1,0 +1,10 @@
+%h2 New Menu Form
+= form_for([:owners, @restaurant, @menu]) do |f|
+  .field
+    = f.label :name, "Menu Name"
+    %br/
+    = f.text_field :name, autofocus: true
+  .actions
+    = f.submit "Create"
+    %p
+      = flash[:notice]

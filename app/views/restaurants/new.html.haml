@@ -1,7 +1,7 @@
 %h2 Restaurant Registration Form
 = form_for @restaurant  do |f|
   - if @restaurant.errors.any?
-    - @restautant.errors.full_messages.each do |message|
+    - @restaurant.errors.full_messages.each do |message|
       = message
   .field
     = f.label :name, "Restaurant Name"

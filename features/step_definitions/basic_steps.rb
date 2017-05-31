@@ -29,3 +29,21 @@ end
 Given(/^I click on button "([^"]*)"$/) do |button_name|
   click_button button_name
 end
+
+Given(/^"([^"]*)" exists and has 2 restaurants belonging to 2 restaurant categories$/) do |user_email|
+  steps %{
+    Given the following restaurant categories exist
+      | name      |
+      | Sushi     |
+      | Fast food |
+
+    And the following users exist:
+      | email           | password | password_confirmation |restaurant_owner  |
+      | #{user_email}   | 12345678 | 12345678              |true              |
+
+    And the following restaurants exist
+      | name                | address           | email               | phone         | rest_category | description             | owner           |
+      | Goteborg Wok Sushi  | Östrahamngatan 5  | goteborgwok@live.se | 031-13 51 52  | Sushi         | Greatest sushi in town! | #{user_email}   |
+      | McDonalds           | Big Mac Drive     |                     |               | Fast food     |                         | #{user_email}   |
+  }
+end

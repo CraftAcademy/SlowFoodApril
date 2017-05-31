@@ -4,15 +4,7 @@ Feature: Visit the restaurant page
   I would like to be able to visit a menu page and see the restaurants menu name
 
   Background:
-    Given the following restaurant categories exist
-      | name      |
-      | Sushi     |
-      | Fast food |
-
-    Given the following restaurants exist
-      | name                | address           | email               | phone         | rest_category | description             |
-      | Goteborg Wok Sushi  | Östrahamngatan 5  | goteborgwok@live.se | 031-13 51 52  | Sushi         | Greatest sushi in town! |
-      | McDonalds           | Big Mac Drive     |                     |               | Fast food     |                         |
+    Given "benji@teabags.com" exists and has 2 restaurants belonging to 2 restaurant categories
 
     Given the following menus exist
       | name                    | restaurant          |

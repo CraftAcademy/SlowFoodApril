@@ -17,6 +17,7 @@ RSpec.describe Restaurant, type: :model do
 
   describe 'Associations' do
     it { is_expected.to belong_to :rest_category }
+    it { is_expected.to belong_to :user}
   end
 
   describe 'Factory' do
