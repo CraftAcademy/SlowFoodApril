@@ -1,0 +1,8 @@
+%h1 #{@restaurant.name} menus
+- @menus.each do |menu|
+  %p= menu.name
+  %ul
+  - menu.dishes.each do |dish|
+    %li= dish.name
+    %li= dish.description
+    %li= dish.price

@@ -10,6 +10,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :last_name }
     it { is_expected.to have_db_column :address }
     it { is_expected.to have_db_column :phone_number }
+    it { is_expected.to have_db_column :admin }
+    it { is_expected.to have_db_column :restaurant_owner }
   end
 
   describe 'Validations' do
@@ -25,6 +27,13 @@ RSpec.describe User, type: :model do
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(FactoryGirl.create(:user)).to be_valid
+    end
+  end
+
+  describe 'Restaurant Owner role' do
+    subject { FactoryGirl.create(:user, restaurant_owner: true ) }
+    it 'should check that user is a restaurant_owner' do
+      expect(subject.restaurant_owner?).to be true
     end
   end
 end

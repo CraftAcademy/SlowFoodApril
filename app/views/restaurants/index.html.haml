@@ -1,25 +1,19 @@
-!!!
-%html
-  %head
-    %title Slow Food
-  %body
-    - if user_signed_in?
-      = link_to('Log Out', destroy_user_session_path, :method => :delete)
-    - else
-      = link_to 'Log In', new_user_session_path
-      = link_to "Sign Up", new_user_registration_path
-    %div
-      = form_tag(root_path, method: 'get') do
-        = label_tag(:category, 'Filter by category: ')
-        = collection_select :category, :id, RestCategory.all, :id, :name
-        = submit_tag('Filter')
-    %div
-      %ul
-        - @restaurants.each do |restaurant|
-          %li= link_to (restaurant.name), restaurant_path(restaurant)
-          %ul
-            %li Address: #{restaurant.address}
-            %li Email: #{restaurant.email}
-            %li Phone: #{restaurant.phone}
+- if user_signed_in?
+  = link_to "Are you a restaurant owner? Click to register your restaurant", new_restaurant_path
+- if user_signed_in? && current_user.restaurant_owner?
+  = link_to "View My Restaurant Page", owners_restaurants_path(current_user)
+%div
+  = form_tag(root_path, method: 'get') do
+    = label_tag(:category, 'Filter by category: ')
+    = collection_select(:category, :id, RestCategory.all, :id, :name)
+    = submit_tag('Filter')
 
-    #map{ style: "width: 100%; height: 400px;" }
+%div
+  %ul
+    - @restaurants.each do |restaurant|
+      %li= link_to (restaurant.name), restaurant_path(restaurant)
+      %ul
+        %li Address: #{restaurant.address}
+        %li Email: #{restaurant.email}
+        %li Phone: #{restaurant.phone}
+#map{ style: "width: 100%; height: 400px;" }

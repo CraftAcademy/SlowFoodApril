@@ -11,5 +11,6 @@ FactoryGirl.define do
     longitude "Float"
     description "MyString"
     rest_category
+    user
   end
 end

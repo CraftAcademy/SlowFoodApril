@@ -4,15 +4,7 @@ Feature: Visit the restaurant page
   I would like to visit the restaurants page
 
   Background:
-    Given the following restaurant categories exist
-      | name      |
-      | Sushi     |
-      | Fast food |
-
-    Given the following restaurants exist
-      | name                | address           | email               | phone         | rest_category | description             |
-      | Goteborg Wok Sushi  | Östrahamngatan 5  | goteborgwok@live.se | 031-13 51 52  | Sushi         | Greatest sushi in town! |
-      | McDonalds           | Big Mac Drive     |                     |               | Fast food     |                         |
+    Given "benji@teabags.com" exists and has 2 restaurants belonging to 2 restaurant categories
 
   Scenario: Go to the restaurant's page
     Given I visit the landing page

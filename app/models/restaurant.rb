@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
   belongs_to :rest_category
-    
+  belongs_to :user
+
   validates_presence_of :name,
                         :address,
                         :city,
@@ -21,5 +22,4 @@ class Restaurant < ApplicationRecord
   def address_city_state_country_present?
     address.present? && city.present? && state.present? && country.present?
   end
-
 end

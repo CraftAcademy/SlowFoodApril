@@ -1,0 +1,33 @@
+%h2 Restaurant Registration Form
+= form_for @restaurant  do |f|
+  - if @restaurant.errors.any?
+    - @restaurant.errors.full_messages.each do |message|
+      = message
+  .field
+    = f.label :name, "Restaurant Name"
+    %br/
+    = f.text_field :name, autofocus: true
+  .field
+    = f.label :address, "Address"
+    %br/
+    = f.text_field :address
+  .field
+    = f.label :city, "City"
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :province, "Province"
+    %br/
+    = f.text_field :province
+  .field
+    = f.label :country, "Country"
+    %br/
+    = f.text_field :country
+  .field
+    = f.label :rest_category_id, "Restaurant Category"
+    %br/
+    = f.collection_select(:rest_category_id, @categories, :id, :name)
+  .actions
+    = f.submit "Submit"
+    %p
+      = flash[:notice]
