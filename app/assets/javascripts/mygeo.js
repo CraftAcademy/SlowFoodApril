@@ -4,13 +4,11 @@ function setGeolocation() {
     var coords;
     var latitude;
     var longitude;
-    debugger;
     if (test_env === false) {
         // GMaps.geolocate({
         //     success: function(position) {
         //         latitude = position.coords.latitude;
         //         longitude = position.coords.longitude;
-        //         debugger;
         //         coords =  {latitude: latitude, longitude: longitude};
         //     },
         //     error: function(error) {
@@ -31,7 +29,6 @@ function setGeolocation() {
         longitude = 28.209190;
         coords =  {latitude: latitude, longitude: longitude};
     }
-    debugger;
     return coords;
 }
 
