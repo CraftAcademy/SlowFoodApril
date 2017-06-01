@@ -19,5 +19,5 @@
 coverage
 
 .DS_Store
-.idea
+#.idea
 public/assets/
