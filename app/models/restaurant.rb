@@ -1,11 +1,11 @@
 class Restaurant < ApplicationRecord
   belongs_to :rest_category
     
-  validates_presence_of :name, presence: true
-  validates_presence_of :address, presence: true
-  validates_presence_of :city, presence: true
-  validates_presence_of :state, presence: true
-  validates_presence_of :country, presence: true
+  validates_presence_of :name,
+                        :address,
+                        :city,
+                        :state,
+                        :country
 
   geocoded_by :full_address, latitude: :latitude, longitude: :longitude
   after_validation  :geocode, if:  :address_city_state_country_present? || :address_city_state_country_changed?
@@ -19,7 +19,7 @@ class Restaurant < ApplicationRecord
   end
 
   def address_city_state_country_present?
-    address.present? || city.present? || state.present? || country.present?
+    address.present? && city.present? && state.present? && country.present?
   end
 
 end

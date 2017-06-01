@@ -1,7 +1,7 @@
 
 Given(/^my restaurant is created with the address, city, state and country$/) do |table|
   table.hashes.each do |hash|
-    FactoryGirl.create(:restaurant, hash)
+    create(:restaurant, hash)
   end
 end
 

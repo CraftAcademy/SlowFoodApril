@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -20,7 +20,6 @@ gem 'geocoder'
 gem 'devise'
 
 
-
 group :development, :test do
   gem 'coveralls', require: false
   gem 'cucumber-rails', require: false
@@ -29,7 +28,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem "haml-rails", "~> 0.9"
+  gem 'haml-rails', '~> 0.9'
   gem 'poltergeist'
   gem 'launchy'
 end
