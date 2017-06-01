@@ -13,12 +13,11 @@ Then(/^my position on the map should be approximately "([^"]*)" lat and "([^"]*)
   expect(center_long).to be_within(ACCEPTED_OFFSET).of(lng.to_f)
 end
 
-
 Then(/^I expect to see a google map marker$/) do
   sleep(0.1) until page.evaluate_script('$.active') == 0
-  expect(page).to have_css 'div.overlay'
+  marker_count = page.evaluate_script('map.markers.length;')
+  expect(marker_count).to eq 2
 end
-
 
 Given(/^my location is set to "([^"]*)" lat and "([^"]*)" long$/) do |arg1, arg2|
 
