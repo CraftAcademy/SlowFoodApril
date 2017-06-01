@@ -5,7 +5,7 @@ FactoryGirl.define do
     phone "MyString"
     email "MyString"
     city  "MyString"
-    state "MyString"
+    province "MyString"
     country "MyString"
     latitude  "Float"
     longitude "Float"

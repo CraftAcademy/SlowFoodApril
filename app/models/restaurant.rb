@@ -5,21 +5,21 @@ class Restaurant < ApplicationRecord
   validates_presence_of :name,
                         :address,
                         :city,
-                        :state,
+                        :province,
                         :country
 
   geocoded_by :full_address, latitude: :latitude, longitude: :longitude
-  after_validation  :geocode, if:  :address_city_state_country_present? || :address_city_state_country_changed?
+  after_validation  :geocode, if:  :address_city_province_country_present? || :address_city_province_country_changed?
 
   def full_address
-    [address, city, state, country].compact.join(', ')
+    [address, city, province, country].compact.join(', ')
   end
 
-  def address_city_state_country_changed?
-    address_changed? || city_changed? || state_changed? || country_changed?
+  def address_city_province_country_changed?
+    address_changed? || city_changed? || province_changed? || country_changed?
   end
 
-  def address_city_state_country_present?
-    address.present? && city.present? && state.present? && country.present?
+  def address_city_province_country_present?
+    address.present? && city.present? && province.present? && country.present?
   end
 end

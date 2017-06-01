@@ -9,7 +9,7 @@ RSpec.describe Restaurant, type: :model do
     it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :phone }
     it { is_expected.to have_db_column :city }
-    it { is_expected.to have_db_column :state }
+    it { is_expected.to have_db_column :province }
     it { is_expected.to have_db_column :country }
     it { is_expected.to have_db_column :latitude }
     it { is_expected.to have_db_column :longitude }
@@ -20,7 +20,7 @@ RSpec.describe Restaurant, type: :model do
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :city }
-    it { is_expected.to validate_presence_of :state }
+    it { is_expected.to validate_presence_of :province }
     it { is_expected.to validate_presence_of :country }
   end
 
@@ -31,7 +31,7 @@ RSpec.describe Restaurant, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(FactoryGirl.create(:restaurant)).to be_valid
+      expect(create(:restaurant)).to be_valid
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe Restaurant, type: :model do
               latitude: 57.70931634,
               longitude: 11.9663941,
               address: 'Ostrahamngatan 5',
-              state: 'Vastra Gotaland',
+              province: 'Vastra Gotaland',
               city: 'Gothenbourg',
               country: 'Sweden'
           }
@@ -62,13 +62,13 @@ RSpec.describe Restaurant, type: :model do
     details = {name: 'Spur',
                address: '35, Burger Avenue',
                city: 'Centurion',
-               state: 'Gauteng',
+               province: 'Gauteng',
                country: 'South Africa'}
     restaurant = create(:restaurant, details)
     expect(restaurant.full_address)
         .to eq '35, Burger Avenue, Centurion, Gauteng, South Africa'
-    expect(restaurant.address_city_state_country_changed?).to be false
-    expect(restaurant.address_city_state_country_present?).to be true
+    expect(restaurant.address_city_province_country_changed?).to be false
+    expect(restaurant.address_city_province_country_present?).to be true
     expect(restaurant.latitude).to eq -25.837322
   end
 
@@ -76,7 +76,7 @@ RSpec.describe Restaurant, type: :model do
     restaurant = build(:restaurant,
                                    address: nil)
     restaurant.save(validate: false)
-    expect(restaurant.address_city_state_country_present?).to be false
+    expect(restaurant.address_city_province_country_present?).to be false
     expect(restaurant.latitude).to eq 0.0
   end
 
@@ -84,12 +84,12 @@ RSpec.describe Restaurant, type: :model do
     location = {name: 'Spur',
                 address: '35, Burger Avenue',
                 city: 'Centurion',
-                state: 'Gauteng',
+                province: 'Gauteng',
                 country: 'South Africa'}
     restaurant = create(:restaurant, location)
     expect(restaurant.latitude).to eq -25.837322
     new_location = {address: 'Ostrahamngatan 5',
-                    state: 'Vastra Gotaland',
+                    province: 'Vastra Gotaland',
                     city: 'Gothenbourg',
                     country: 'Sweden'}
     restaurant.update_attributes(new_location)

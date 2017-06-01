@@ -22,9 +22,9 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     if @restaurant.save
       redirect_to root_path
-      flash[:notice] = "Your restaurant has been sucessfully registered!"
+      flash[:notice] = 'Your restaurant has been sucessfully registered!'
     else
-      render "new"
+      render 'new'
     end
   end
 
