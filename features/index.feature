@@ -3,9 +3,7 @@ Feature: As a system owner
   I would like to have real restaurant info in the system
 
 Background:
-  Given the following restaurants exist
-    | name                | address           | email               | phone         |
-    | Goteborg Wok Sushi  | Östrahamngatan 5  | goteborgwok@live.se | 031-13 51 52  |
+  Given "benji@teabags.com" exists and has 2 restaurants belonging to 2 restaurant categories
 
 Scenario:
   Given I visit the landing page
