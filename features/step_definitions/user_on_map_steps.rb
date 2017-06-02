@@ -19,6 +19,8 @@ Then(/^I expect to see a google map marker$/) do
   expect(marker_count).to eq 2
 end
 
-Given(/^my location is set to "([^"]*)" lat and "([^"]*)" long$/) do |arg1, arg2|
-
+Then(/^show me the coordinates$/) do
+  sleep(0.1) until page.evaluate_script('$.active') == 0
+  center = page.evaluate_script('map.getCenter()')
+  coords = page.evaluate_script('coords')
 end
