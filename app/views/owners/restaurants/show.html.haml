@@ -1,2 +1,7 @@
+%h1 #{@restaurant.name} menus
+- @menus.each do |menu|
+  %p= menu.name
+  %p= link_to "Edit #{menu.name} Menu", edit_owners_restaurant_menu_path(@restaurant, menu)
+  %p= link_to "Delete #{menu.name} Menu", owners_restaurant_menu_path(@restaurant, menu), method: :delete
 %div
-  = link_to 'Create Menu', new_owners_restaurant_menu_path(@restaurant_id)
+  = link_to 'Create Menu', new_owners_restaurant_menu_path(@restaurant)

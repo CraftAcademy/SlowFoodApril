@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 
   namespace 'owners' do
     resources :restaurants, only: [:index, :show, :create, :new] do
-      resources :menus, only: [:show, :index, :create, :new]
+      resources :menus, only: [:show, :index, :create, :new, :update, :edit, :destroy]
     end
   end
+
+  get '/add_to_cart/:dish_id/:restaurant_id', to: 'carts#add_to_cart', as: 'add_to_cart'
+  get '/cart', to: 'carts#checkout', as: 'checkout'
 end

@@ -48,14 +48,11 @@ ActiveRecord::Schema.define(version: 20170526143220) do
     t.datetime "updated_at",       null: false
     t.string   "description"
     t.string   "city"
-    t.string   "state"
+    t.string   "province"
     t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "rest_category_id"
-    t.string   "city"
-    t.string   "province"
-    t.string   "country"
     t.integer  "user_id"
     t.index ["rest_category_id"], name: "index_restaurants_on_rest_category_id", using: :btree
     t.index ["user_id"], name: "index_restaurants_on_user_id", using: :btree

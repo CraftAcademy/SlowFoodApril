@@ -4,6 +4,7 @@ class Owners::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant_id = params[:id]
+    @restaurant = Restaurant.find(params[:id])
+    @menus = Menu.where(restaurant_id: @restaurant.id)
   end
 end
