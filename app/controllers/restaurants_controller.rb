@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+
+  before_action :nearby
+
   def index
     if params[:category].present? == true
       cat_chosen = params[:category][:id]
@@ -29,6 +32,12 @@ class RestaurantsController < ApplicationController
   end
 
   private
+
+  def nearby
+    @user_lat = params[:latitude]
+    @user_long = params[:longitude]
+    @near_restaurants = Restaurant.near([@user_lat, @user_long], 20)
+  end
 
   def restaurant_params
     params.require(:restaurant)

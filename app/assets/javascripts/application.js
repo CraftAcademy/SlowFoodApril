@@ -12,7 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-//= require mygeo
-//= require gmaps
+// require turbolinks
+// require_tree .
