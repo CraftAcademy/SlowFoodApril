@@ -22,6 +22,9 @@ Feature: Show order on checkout page
       | Coffe                   | Not from Colombia                       | 2500       | Sushi Menu                | McDonalds            |
 
     Given I visit the landing page
+    And I click on link "Cart"
+    Then I should see "Your cart is empty"
+    Given I visit the landing page
     And I click on link "McDonalds"
     And I click on link "Full menu"
     And I click on link "Add Giant Burger to cart"
@@ -30,9 +33,14 @@ Feature: Show order on checkout page
     Given I visit the landing page
     And I click on link "Cart"
     Then I should see "My Cart Items"
+    And I should see "McDonalds"
     And I should see "Giant Burger"
     And I should see "150"
     And I should see "Coffe"
     And I should see "2500"
     And I should see "Total price:"
     And I should see "2650"
+    And I should see "mickeyd@mcd.com"
+    And I should see "770-555-1231"
+    When I click on link "Empty cart"
+    Then I should see "Your cart is empty"

@@ -44,6 +44,6 @@ Given(/^"([^"]*)" exists and has 2 restaurants belonging to 2 restaurant categor
     And the following restaurants exist
       | name                | address           | email               | phone         | rest_category | description             | owner           |
       | Goteborg Wok Sushi  | Östrahamngatan 5  | goteborgwok@live.se | 031-13 51 52  | Sushi         | Greatest sushi in town! | #{user_email}   |
-      | McDonalds           | Big Mac Drive     |                     |               | Fast food     |                         | #{user_email}   |
+      | McDonalds           | Big Mac Drive     | mickeyd@mcd.com     | 770-555-1231  | Fast food     |                         | #{user_email}   |
   }
 end

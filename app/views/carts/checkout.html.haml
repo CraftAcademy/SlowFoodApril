@@ -1,7 +1,21 @@
 %h2 Checkout page
 %h3 My Cart Items:
-%ul
-  - @items.each do |item|
-    %li Dish: #{item['name']}
-    %li Price: #{item['price']}
-%h5 Total price: #{@total_price}
+- if @empty_cart
+  %p Your cart is empty
+- else
+  %ul
+    - @items.each do |item|
+      %li
+        %strong Dish: #{item[0]['name']}
+      %li Restaurant: #{item[1]['name']}
+      %li Price: #{item[0]['price']}
+  %h5 Total price: #{@total_price}
+
+  %h3 Restaurants to place the order with
+  %ul
+  - @restaurants.each do |restaurant|
+    %li
+      %strong Name: #{restaurant['name']}
+    %li Phone: #{restaurant['phone']}
+    %li Email: #{restaurant['email']}
+  %p= link_to 'Empty cart', empty_cart_path

@@ -7,4 +7,3 @@
     %li= dish.description
     %li= dish.price
     %li= link_to "Add #{dish.name} to cart", add_to_cart_path(dish, @restaurant)
-    = flash[:notice]
